@@ -38,10 +38,10 @@ class HttpDioUtils {
   String _statusKey = "status";
 
   /// BaseResp [int code]字段 key, 默认：errorCode.
-  String _codeKey = "errorCode";
+  String _codeKey = "code";
 
   /// BaseResp [String msg]字段 key, 默认：errorMsg.
-  String _msgKey = "errorMsg";
+  String _msgKey = "msg";
 
   /// BaseResp [T data]字段 key, 默认：data.
   String _dataKey = "data";
@@ -52,25 +52,47 @@ class HttpDioUtils {
   static HttpDioUtils getInstance() {
     if (instance == null) {
       instance = new HttpDioUtils();
+      print("dio1");
     }
     return instance;
   }
 
   HttpDioUtils() {
+    print("dio");
     _dio = new Dio(_options);
   }
-
   ///设置cookie
   void setCookie(String cookie) {
     Map<String, dynamic> _headers = Map();
     _headers['Cookie'] = cookie;
     _dio.options.headers.addAll(_headers);
   }
-
   Future<BaseResponse<T>> request<T>(String method, String path,
       {data, Options options, CancelToken cancelToken}) async {
-    Response response =
-        await _dio.request(path, data: data, cancelToken: cancelToken);
+    // 打印网络日志
+    StringBuffer requestParam = new StringBuffer();
+    requestParam.write(" [request: method] ");
+    requestParam.write(method);
+    requestParam.write("\n");
+    requestParam.write(" [request: url] ");
+    requestParam.write(_dio.options.baseUrl);
+    requestParam.write("\n");
+    requestParam.write("[request: path] ");
+    requestParam.write(path);
+    requestParam.write("\n");
+    requestParam.write("[request: headers]");
+    requestParam.write(_dio.options.headers);
+    requestParam.write("\n");
+    requestParam.write("[request: params] ");
+    requestParam.write(json.encode(data));
+
+    printLog(requestParam.toString());
+
+    ///网络请求前
+    Response response = await _dio.request(path,
+        data: data,
+        options: _checkOptions(method, options),
+        cancelToken: cancelToken);
     _printHttpLog(response);
     String _status;
     int _code;
@@ -151,7 +173,7 @@ class HttpDioUtils {
 
   /// print Http Log.
   void _printHttpLog(Response response) {
-    if (!_isDebug) {
+    if (_isDebug) {
       return;
     }
     try {
@@ -164,6 +186,19 @@ class HttpDioUtils {
       _printDataStr("response", response.data);
     } catch (ex) {
       print("Http Log" + " error......");
+    }
+  }
+
+  static void printLog(String log, {tag}) {
+    bool print = true;
+    if (print) {
+      String tagLog;
+      if (tag != null) {
+        tagLog = tag + log;
+      } else {
+        tagLog = log;
+      }
+      debugPrint(tagLog);
     }
   }
 
@@ -203,11 +238,10 @@ class HttpDioUtils {
   ///options
   static BaseOptions getOptions() {
     BaseOptions options = new BaseOptions(
-        method: "GET",
-        baseUrl: Config.BASE_URL,
-        connectTimeout: 30000,
-        receiveTimeout: 30000,
-        headers: {'version': '1.0.0'});
+      baseUrl: Config.BASE_URL,
+      connectTimeout: 30000,
+      receiveTimeout: 30000,
+    );
     return options;
   }
 }
