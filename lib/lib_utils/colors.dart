@@ -23,7 +23,7 @@ class Colours {
   static const Color gray_f5 = Color(0xfff5f5f5); //<!--204-->
   static const Color gray_cc = Color(0xffcccccc); //<!--204-->
   static const Color gray_ce = Color(0xffcecece); //<!--206-->
-  static const Color green_1 = Color(0xff009688); //<!--204-->
+  static const Color green_1 = Color(0xff7BA165); //<!--204-->
   static const Color green_62 = Color(0xff626262); //<!--204-->
   static const Color green_e5 = Color(0xffe5e5e5); //<!--204-->
 

@@ -24,6 +24,7 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.2
   rxdart: ^0.22.0
+  dio: ^3.0.4
 
 dev_dependencies:
   flutter_test:
@@ -41,7 +42,16 @@ flutter:
   # the material Icons class.
   uses-material-design: true
   assets:
-    - assets/imagers/ic_login_bg.png
+  - assets/imagers/ic_login_bg.png
+  - assets/main_ui/partner_normal.png
+  - assets/main_ui/partner_sel.png
+  - assets/main_ui/identify_sel.png
+  - assets/main_ui/identify_normal.png
+  - assets/main_ui/locus_sel.png
+  - assets/main_ui/locus_normal.png
+  - assets/main_ui/my_sel.png
+  - assets/main_ui/my_normal.png
+  - assets/main_ui/sustenance_sel.png
   #  - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

@@ -9,4 +9,13 @@ class CommonUtils {
   static void showSnackBar(BuildContext context, String msg) {
     Scaffold.of(context).showSnackBar(SnackBar(content: Text(msg)));
   }
+
+  ///获取底部icon的大小
+  static Widget getBottomIcon(String assertUri) {
+    return Image.asset(
+      assertUri,
+      width: 26,
+      height: 26,
+    );
+  }
 }

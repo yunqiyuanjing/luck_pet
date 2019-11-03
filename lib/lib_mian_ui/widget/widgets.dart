@@ -43,7 +43,7 @@ class _LoginItemState extends State<LoginItem> {
           iconSize: 28,
           icon: new Icon(
             widget.preIcon,
-            color: Theme.of(context).primaryColor,
+            color: Colours.gray_33,
           ),
         ),
         Gaps.wGaps30,
@@ -51,17 +51,17 @@ class _LoginItemState extends State<LoginItem> {
           child: TextField(
             obscureText: _obscureText,
             controller: widget.controller,
-            style: TextStyle(color: Colours.gray_f0, fontSize: 24),
+            style: TextStyle(color: Colours.gray_33, fontSize: 24),
             decoration: InputDecoration(
                 hintText: widget.hitText,
-                hintStyle: TextStyle(color: Colours.gray_66, fontSize: 24),
+                hintStyle: TextStyle(color: Colours.gray_f0, fontSize: 24),
                 suffixIcon: widget.hasSuffixIcon
                     ? IconButton(
                         icon: Icon(
                           _obscureText
                               ? Icons.visibility
                               : Icons.visibility_off,
-                          color: Colours.gray_66,
+                          color: Colours.gray_33,
                         ),
                         onPressed: () {
                           setState(() {
@@ -123,7 +123,7 @@ class RoundBtn extends StatelessWidget {
         color: _bgColor,
         child: InkWell(
           borderRadius: _bordeRadius,
-          onTap: () => onPressed,
+          onTap: () => onPressed(),
           child: child ??
               Center(
                 child: Text(
