@@ -26,3 +26,10 @@ class Config {
   ///http 请求的内容
   static final String BASE_URL = "https://www.wanandroid.com/banner/json";
 }
+
+class LoadStatus {
+  static const int fail = -1;
+  static const int loading = 0;
+  static const int success = 1;
+  static const int empty = 2;
+}

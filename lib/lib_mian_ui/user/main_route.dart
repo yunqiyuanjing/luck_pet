@@ -5,6 +5,7 @@ import 'package:luck_pets/lib_utils/colors.dart';
 import 'package:luck_pets/lib_config/Config.dart';
 import 'package:luck_pets/lib_mian_ui/partner_pager.dart';
 import 'package:luck_pets/lib_utils/Utils.dart';
+import 'package:luck_pets/lib_test/DynamicsBodyWidget.dart';
 /*
  * @author chengpenggao
  * @date 2019/11/2
@@ -41,7 +42,7 @@ class _MainRouteState extends State<MainRoute>
     var appBars = [null, null, null, null, null];
 
     ///appBarBody
-    var appBarBody = [FollowPager(), HotPager()];
+    var appBarBody = [DynamicsBodyWidget(), DynamicsBodyWidget()];
 
     var styles = TextStyle(fontSize: 18.0, fontWeight: FontWeight.w500);
 
@@ -83,7 +84,7 @@ class _MainRouteState extends State<MainRoute>
         children: appBarBody,
         controller: _tabController,
       ),
-      PartnerPager(),
+      DynamicsBodyWidget(),
       PartnerPager(),
       PartnerPager(),
       PartnerPager(),
@@ -115,9 +116,9 @@ class _MainRouteState extends State<MainRoute>
                 title: Text(Config.partner)),
             BottomNavigationBarItem(
                 icon: CommonUtils.getBottomIcon(
-                    'assets/main_ui/partner_normal.png'),
+                    'assets/main_ui/sustenance_normal.png'),
                 activeIcon: CommonUtils.getBottomIcon(
-                    'assets/main_ui/sustance_sel.png'),
+                    'assets/main_ui/sustenance_sel.png'),
                 title: Text(Config.sustenance)),
             BottomNavigationBarItem(
                 icon: CommonUtils.getBottomIcon(
