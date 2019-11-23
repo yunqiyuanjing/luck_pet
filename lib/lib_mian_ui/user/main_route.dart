@@ -6,6 +6,10 @@ import 'package:luck_pets/lib_config/Config.dart';
 import 'package:luck_pets/lib_mian_ui/partner_pager.dart';
 import 'package:luck_pets/lib_utils/Utils.dart';
 import 'package:luck_pets/lib_test/DynamicsBodyWidget.dart';
+import 'package:luck_pets/lib_test/Sustenance_page.dart';
+import 'package:luck_pets/lib_test/Identify_page.dart';
+import 'package:luck_pets/lib_test/Locus_Widget.dart';
+import 'package:luck_pets/lib_test/My_test.dart';
 /*
  * @author chengpenggao
  * @date 2019/11/2
@@ -84,10 +88,10 @@ class _MainRouteState extends State<MainRoute>
         children: appBarBody,
         controller: _tabController,
       ),
-      DynamicsBodyWidget(),
-      PartnerPager(),
-      PartnerPager(),
-      PartnerPager(),
+      HomeHotWidget(),
+      Identify(),
+      Locus_Page(),
+      My_Page(),
     ];
 
     return Scaffold(

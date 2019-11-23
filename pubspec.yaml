@@ -54,6 +54,15 @@ flutter:
   - assets/main_ui/my_normal.png
   - assets/main_ui/sustenance_sel.png
   - assets/main_ui/sustenance_normal.png
+  - assets/main_ui/identify_head.png
+  - assets/main_ui/icon_identify.png
+  - assets/main_ui/icon_progress_h.png
+  - assets/main_ui/icon_camera.png
+  - assets/main_ui/icon_process_w.png
+  - assets/main_ui/icon_identify_z.png
+  - assets/main_ui/icon_locus_head.png
+  - assets/main_ui/icon_route_test.png
+  - assets/main_ui/icon_my_head.png
   #  - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
